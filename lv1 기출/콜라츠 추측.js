@@ -8,7 +8,7 @@ function solution(num) {
   if (num === 1) return 0
 
   let tmp = num
-  let n = 0
+  let n = 1
 
   while(n <= 500) {
     n++
@@ -18,7 +18,6 @@ function solution(num) {
       tmp = getThree(tmp)
     }
     if (tmp === 2) {
-      n++
       break
     }
   }

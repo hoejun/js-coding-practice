@@ -4,8 +4,8 @@ function solution(s) {
   const str = s.split('')
 
   if (s.length % 2 === 0) {
-    answer = str[startStr-1].concat(str[startStr])
-    
+    answer = str[startStr - 1].concat(str[startStr])
+
   } else {
     answer = str[startStr - 0.5]
   }

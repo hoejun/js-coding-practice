@@ -1,46 +1,34 @@
 function solution(A,B){
-  let newA = [...A]
-  let newB = [...B]
-  var answer = 0;
-  const arr = []
-  let sum = 0
-  for (let index = 0; index < A.length; index++) {
-    const num = []
-    for (let j = 0; j < B.length; j++) {
-      const a = A.splice(index, 1)
-      const b = B.splice(j, 1)
-      const mul = a*b
-      num.push(mul)
-    }
-    arr.push(num)
-    // const min = Math.min(...newA)
-    // const max = Math.max(...newB)
-    // console.log(min)
-    // console.log(max)
-    // const mul = min*max
-    // console.log('곱', mul)
-    // sum+=mul
-    // console.log(sum)
-    // newA.shift()
-    // newB.shift()
-    // const mul = []
-    // for (let j = 0; j < B.length; j++) {
-    //   mul.push(A[index]*B[j])
-    // }
-    // arr.push(mul)
-  }
-  console.log(arr)
-  // console.log(arr[0])
-  // let min = []
-  // for (let i = 0; i < arr.length; i++) {
-  //   const minValue = Math.min(...arr[i])
-  //   min.push(minValue)
-  // }
-  // console.log('최소', min)
-  // console.log(arr)
-  // console.log(sum)
+  // const arrA = []
+  // const arrB = []
+  // 이걸 왜 생각 못했을까...
+  A.sort((a,b) => a-b)
+  B.sort((a,b) => b-a)
 
-  return answer;
+  // 기존의 로직은 배열의 최소값을 구하여 배열을 재정의
+  // for (let i = 0; i < A.length; i++) {
+  //   const a = Math.min(...A)
+  //   if(A[i] === a){
+  //     A.splice(i, 1)
+  //     arrA.push(a)
+  //     i--
+  //     if (i === 0) i--
+  //   }
+  // }
+  // 기존의 로직은 배열의 최대값을 구하여 배열을 재정의
+  // for (let i = 0; i < B.length; i++) {
+  //   const b = Math.max(...B)
+  //   if (B[i] === b) {
+  //     B.splice(i, 1)
+  //     arrB.push(b)
+  //     i--
+  //     if (i === 0) i--
+  //   }
+  // }
+  // 이렇게 로직을 구현 할 필요가 없는데.....
+  
+  const result = A.reduce((acc, cur, index) => acc + (cur*B[index]), 0)
+  return result;
 }
 
 const A = [1,4,2]

@@ -5,7 +5,7 @@ const intToParse = (arr, total, count) => {
 
   // for (let i = 0; i < _arr.length; i++) {
   //   if (_arr[i] === '0') {
-  //     _arr.splice(i, 1) // 배열을 재구성하기 때문에 시간보잡도가 높다.
+  //     _arr.splice(i, 1) // 배열을 재구성하기 때문에 시간복잡도가 높다.
   //     i--
   //     _count++
   //   }

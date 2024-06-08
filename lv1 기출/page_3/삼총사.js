@@ -2,9 +2,9 @@ function solution(number) {
   var answer = 0;
   let count = 0
   for (let index = 0; index < number.length; index++) {
-    console.log(number[index]);
-    console.log(number[index+1]);
-    console.log(number[index+2]);
+    // console.log(number[index]);
+    // console.log(number[index+1]);
+    // console.log(number[index+2]);
     console.log('합계');
     const num = number[index] + number[index + 1] + number[index + 2]
 

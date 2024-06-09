@@ -1,54 +1,48 @@
-function solution(n) {
-  let num = n
-  let result = n + 1
-  let two = []
-  let resulTwo = []
+// 1 카운터
+const getCharCount = (char) => {
   let count = 0
-  let count2 = 0
-  
-  // 2진수 구하기
+  char.forEach(i => {
+    if (i === 1) count++
+  })
+  return count
+}
+// 2진수 구하기
+const getLow = (n) => {
+  let count = 0
+  let num = n
+  let two = []
   while (count < 1) {
-    if (Math.floor(num/2) !== 0) {
+    if (Math.floor(num / 2) !== 0) {
       const s = num % 2
       two.push(s)
-      num = Math.floor(num/2)
+      num = Math.floor(num / 2)
     } else {
       two.push(num)
       count++
     }
   }
-  let countResult = 0
-  two.forEach(i => {
-    if (i === 1) countResult++
-  })
+  return two
+}
+function solution(n) {
+  let result = 0
+  let lowNum = getLow(n)
+  let countResult1 = getCharCount(lowNum)
+  result = ++n
+  let highNum = getLow(result)
+  let countResult2 = getCharCount(highNum)
+  let isBool = true
 
-  let countReulst2 = 0
-  let des = 0
-  while (count2 < 1) {
-    if (Math.floor(result/2) !== 0) {
-      const s = result % 2
-      resulTwo.push(s)
-      result = Math.floor(result/2)
-    } else {
-      resulTwo.push(result)
-      resulTwo.forEach(i => {
-        if (i === 1) countReulst2++
-      })
-      if (countReulst2 === countResult) {
-        count2++
-      } else {
-        n++
-        result = n
-        des = n
-        countReulst2 = 0
-        resulTwo = []
-      }
+  while (isBool) {
+    if (countResult1 === countResult2) isBool = false
+    else {
+      result = ++n
+      highNum = getLow(result)
+      countResult2 = getCharCount(highNum)
     }
   }
-  console.log(des);
-  return des;
+  return result
 }
 
-const n = 15
+const n = 78
 
 solution(n)

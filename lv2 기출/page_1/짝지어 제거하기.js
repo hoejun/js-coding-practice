@@ -10,7 +10,7 @@ function solution(s) {
   return stack.length ? 0 : 1;
 }
 
-const s = 'cdcd'
-// const s = 'baabaa'
+// const s = 'cdcd'
+const s = 'baabaa'
 
 console.log(solution(s))

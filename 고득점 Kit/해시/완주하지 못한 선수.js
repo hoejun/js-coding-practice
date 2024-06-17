@@ -3,8 +3,9 @@ function solution(participant, completion) {
 
   // 참가자 이름을 해시 맵에 저장
   for (const name of participant) {
-    hashMap.set(name, (hashMap.get(name) || 0) + 1);
+    hashMap.set(name, (hashMap.get(name) || 0) + 1); // 이름이 중복이면 +1
   }
+
   // // 완료자 이름을 해시 맵에서 제거
   for (const name of completion) {
     hashMap.set(name, hashMap.get(name) - 1);
@@ -18,7 +19,7 @@ function solution(participant, completion) {
   }
 }
 
-const participant = ["marina", "josipa", "nikola", "vinko", "filipa"]
-const completion = 	["josipa", "filipa", "marina", "nikola"]
+const participant = ["mislav", "stanko", "mislav", "ana"]
+const completion = 	["stanko", "ana", "mislav"]
 
 console.log(solution(participant, completion))

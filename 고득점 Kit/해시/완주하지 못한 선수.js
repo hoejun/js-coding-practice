@@ -1,18 +1,24 @@
 function solution(participant, completion) {
-  for (let i = 0; i < participant.length; i++) {
-    for (let j = 0; j < completion.length; j++) {
-      if (participant[i].includes(completion[j])) {
-        participant.splice(i, 1)
-        completion.splice(j, 1)
-        i--
-        break
-      }
+  const hashMap = new Map();
+
+  // 참가자 이름을 해시 맵에 저장
+  for (const name of participant) {
+    hashMap.set(name, (hashMap.get(name) || 0) + 1);
+  }
+  // // 완료자 이름을 해시 맵에서 제거
+  for (const name of completion) {
+    hashMap.set(name, hashMap.get(name) - 1);
+  }
+
+  // // 해시 맵에서 값이 1인 참가자 이름 반환
+  for (const [name, count] of hashMap) {
+    if (count === 1) {
+      return name;
     }
   }
-  return participant[0]
 }
 
 const participant = ["marina", "josipa", "nikola", "vinko", "filipa"]
 const completion = 	["josipa", "filipa", "marina", "nikola"]
 
-solution(participant, completion)
+console.log(solution(participant, completion))

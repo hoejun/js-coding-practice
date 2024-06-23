@@ -13,9 +13,7 @@ function solution(participant, completion) {
 
   // // 해시 맵에서 값이 1인 참가자 이름 반환
   for (const [name, count] of hashMap) {
-    if (count === 1) {
-      return name;
-    }
+    if (count === 1) return name;
   }
 }
 

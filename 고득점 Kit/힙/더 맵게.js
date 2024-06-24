@@ -1,3 +1,6 @@
+const getScovil = () => {
+  
+}
 function solution(scoville, K) {
   scoville.sort((a, b) => a - b)
   let scovilleData = 0
@@ -18,20 +21,23 @@ function solution(scoville, K) {
         scovilleData = scovilleData + (scoville[index + 1] * 2)
       }
       count++
-    }
-
-    if (scovilleData >= K) {
-      return
     } else {
+      return scoville[index + 1]
+    }
+    console.log(scovilleData);
+    if (scovilleData >= K) {
       return scovilleData
+    } else {
+      return 0
     }
   })
-  // console.log(count);
+  console.log(s);
+  console.log(count);
   if (count === 0) return -1
   else return count
 }
 
-const scoville = [1, 7, 7, 9, 10, 12]
-const K = 7
+const scoville = [1, 2, 3, 9, 10, 12]
+const K = 10
 
 solution(scoville, K)
